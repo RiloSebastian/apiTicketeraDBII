@@ -36,13 +36,7 @@ require('./app/routes/usuario.routes.js')(app);
 require('./app/routes/informe.routes.js')(app);
 
 // Create a Server
-const server = app.listen(3000, function () {
-
-    let host = server.address().address;
-    let port = server.address().port;
-  
-    console.log(`App listening at http://${host}:${port}`);
-  })
+const server = app.listen(process.env.PORT || 8080);
 
   app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
